@@ -1,0 +1,11 @@
+.result {
+    margin: 20px;
+}
+
+.result__amount {
+    padding: 0 5px;
+}
+
+.result__currency {
+    padding: 0 2px;
+}

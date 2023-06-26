@@ -1,0 +1,28 @@
+.label {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 10px;
+    margin: 20px;
+}
+
+@media (max-width: 767px) {
+    .label {
+        grid-template-columns: 1fr;
+    }
+}
+
+.label__text {
+    display: inline-block;
+    width: 100%;
+    max-width: 200px;
+    margin: 5px;
+}
+
+.label__field {
+    border: 1px solid hsl(207, 44%, 40%);
+    padding: 5px;
+}
+
+.label__field:invalid {
+    background-color: hsl(0, 91%, 95%);
+}

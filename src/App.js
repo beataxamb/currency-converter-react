@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import Result from "./Result";
+import Buttons from "./Buttons";
+import Currency from "./Currency";
+import Amount from "./Amount";
+import Label from "./Label";
+import Header from "./Header";
+import Form from "./Form"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Form
+    annotation="*-pole wymagane"
+    >
+      <Header
+        title="Kalkulator walut"
+      />
+      <Label
+        title="Kwota w złotówkach:* "
+        formField={
+          <Amount />
+        }
+      />
+      <Label
+        title="Wybierz walutę: "
+        formField={
+          <Currency />
+        }
+      />
+      <Buttons />
+      <Result />
+    </Form>
   );
 }
 
