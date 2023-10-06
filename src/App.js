@@ -11,7 +11,6 @@ function App() {
 
   const [amount, setAmount] = useState("");
   const [currency, setCurrency] = useState("EUR");
-  const [result, setResult] = useState("N/A");
 
   const onInputChange = ({ target }) => {
     setAmount(target.value);
@@ -20,27 +19,6 @@ function App() {
   const onSelectChange = ({ target }) => {
     setCurrency(target.value);
   };
-
-  const calculateResult = () => {
-    const calculateResult = calculate();
-    setResult(calculateResult);
-  };
-
-  const calculate = () => {
-    switch (currency) {
-      case "EUR":
-        return amount * 0.21;
-
-      case "GBP":
-        return amount * 0.19;
-
-      case "USD":
-        return amount * 0.22;
-
-      default:
-        return "N/A";
-    }
-  }
 
   return (
     <Form
@@ -61,8 +39,8 @@ function App() {
           <Currency value={currency} onChange={onSelectChange} />
         }
       />
-      <Buttons calculateResult={calculateResult} />
-      <Result result={result} currency={currency} />
+      <Buttons/>
+      <Result/>
     </Form>
   );
 }
