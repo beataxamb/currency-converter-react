@@ -8,6 +8,7 @@ const Currency = ({ value, onChange }) => {
       value={value}
       onChange={onChange}
     >
+      <option></option>
       <option>EUR</option>
       <option>GBP</option>
       <option>USD</option>

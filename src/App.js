@@ -10,7 +10,10 @@ import { useState } from "react";
 function App() {
 
   const [amount, setAmount] = useState("");
-  const [currency, setCurrency] = useState("EUR");
+  const [currency, setCurrency] = useState("");
+  const [result, setResult] = useState("N/A");
+  const [currencyName, setCurrencyName] = useState("");
+
 
   const onInputChange = ({ target }) => {
     setAmount(target.value);
@@ -18,6 +21,28 @@ function App() {
 
   const onSelectChange = ({ target }) => {
     setCurrency(target.value);
+  };
+
+  const calculateResult = () => {
+    const calculateResult = calculate();
+    setResult(calculateResult);
+    setCurrencyName(currency);
+  };
+
+  const calculate = () => {
+    switch (currency) {
+      case "EUR":
+        return amount * 0.21;
+
+      case "GBP":
+        return amount * 0.19;
+
+      case "USD":
+        return amount * 0.22;
+
+      default:
+        return "N/A";
+    }
   };
 
   return (
@@ -39,8 +64,8 @@ function App() {
           <Currency value={currency} onChange={onSelectChange} />
         }
       />
-      <Buttons/>
-      <Result/>
+      <Buttons calculateResult={calculateResult} />
+      <Result result={result} currencyName={currencyName} />
     </Form>
   );
 }
