@@ -25,20 +25,24 @@ function App() {
 
   const calculateResult = () => {
     const calculateResult = calculate();
-    setResult(calculateResult);
+    setResult(calculateResult.toFixed(2));
     setCurrencyName(currency);
   };
 
   const calculate = () => {
+    const currencyEur = 0.21;
+    const currencyGbp = 0.19;
+    const currencyUsd = 0.22;
+
     switch (currency) {
       case "EUR":
-        return amount * 0.21;
+        return amount * currencyEur;
 
       case "GBP":
-        return amount * 0.19;
+        return amount * currencyGbp;
 
       case "USD":
-        return amount * 0.22;
+        return amount * currencyUsd;
 
       default:
         return "N/A";
